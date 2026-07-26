@@ -76,7 +76,7 @@ O temporizador deve ter:
 
 ### 4.2. Backend
 
-- Rust / Go;
+- Go;
     - Conectar com banco SQL?
         - Neste caso SQLLite funciona bem
     - Criar uma API REST?
@@ -85,7 +85,34 @@ O temporizador deve ter:
     - Lint/Formatter?
 - Docker;
 
-## 5 Dúvidas
+## 5 Estrutura de Pastas
+
+- docs
+- frontend
+    - src
+        - main
+            - cells
+            - tissues
+            - organs
+            - systems
+            - organisms
+        - apis
+            - connections
+            - request
+        - hooks
+        - utils
+        - contexts
+    - docker
+- backend
+    - src
+        - routes
+        - controllers
+        - services
+        - sql
+        - repositories
+    - docker
+
+## 6 Dúvidas
 
 Como hospedar?
 Como fazer o CI/CD?
