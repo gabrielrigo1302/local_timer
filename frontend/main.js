@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain } = require('electron/main')
+const fs = require('fs')
 const path = require('path')
 
 const createWindow = () => {
@@ -13,7 +14,11 @@ const createWindow = () => {
     }
   })
 
-  win.loadFile(path.join(__dirname, 'index.html'))
+  const buildPath = path.join(__dirname, 'dist', 'index.html')
+  const fallbackPath = path.join(__dirname, 'index.html')
+  const entryPath = fs.existsSync(buildPath) ? buildPath : fallbackPath
+
+  win.loadFile(entryPath)
 }
 
 app.whenReady().then(() => {
