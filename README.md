@@ -112,7 +112,12 @@ O temporizador deve ter:
         - repositories
     - docker
 
-## 6 Dúvidas
+## 6 Dependências
+
+- Node
+- NPM
+
+## 7 Dúvidas
 
 Como hospedar?
 Como fazer o CI/CD?
