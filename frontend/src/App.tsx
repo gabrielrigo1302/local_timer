@@ -84,52 +84,54 @@ function App() {
   }
 
   return (
-    <main className="app">
-      <h1>Timer Simples</h1>
-      <p>Defina um tempo e comece a contagem.</p>
+    <main className="app-shell">
+      <section className="card">
+        <h1 className="title">Timer Simples</h1>
+        <p className="subtitle">Defina um tempo e comece a contagem.</p>
 
-      <div className="controls">
-        <div className="input-group">
-          <label htmlFor="minutesInput">Minutos</label>
-          <input
-            id="minutesInput"
-            type="number"
-            min="0"
-            max="180"
-            value={minutes}
-            onChange={(event) => handleMinutesChange(event.target.value)}
-          />
+        <div className="inputs-group">
+          <div className="field">
+            <label htmlFor="minutesInput">Minutos</label>
+            <input
+              id="minutesInput"
+              type="number"
+              min="0"
+              max="180"
+              value={minutes}
+              onChange={(event) => handleMinutesChange(event.target.value)}
+            />
+          </div>
+          <div className="field">
+            <label htmlFor="secondsInput">Segundos</label>
+            <input
+              id="secondsInput"
+              type="number"
+              min="0"
+              max="59"
+              value={seconds}
+              onChange={(event) => handleSecondsChange(event.target.value)}
+            />
+          </div>
         </div>
-        <div className="input-group">
-          <label htmlFor="secondsInput">Segundos</label>
-          <input
-            id="secondsInput"
-            type="number"
-            min="0"
-            max="59"
-            value={seconds}
-            onChange={(event) => handleSecondsChange(event.target.value)}
-          />
+
+        <div className="actions">
+          <button onClick={handleStart} disabled={isRunning}>
+            Iniciar
+          </button>
+          <button onClick={handlePause} disabled={!isRunning}>
+            Pausar
+          </button>
+          <button onClick={handleReset}>Resetar</button>
         </div>
-      </div>
 
-      <div className="actions">
-        <button onClick={handleStart} disabled={isRunning}>
-          Iniciar
-        </button>
-        <button onClick={handlePause} disabled={!isRunning}>
-          Pausar
-        </button>
-        <button onClick={handleReset}>Resetar</button>
-      </div>
-
-      <div className="timer-display">{formatTime(remainingSeconds)}</div>
-      <p className="status">
-        {status === 'ready' && 'Pronto para começar'}
-        {status === 'running' && 'Contando...'}
-        {status === 'paused' && 'Pausado'}
-        {status === 'finished' && 'Tempo encerrado!'}
-      </p>
+        <div className="timer-display">{formatTime(remainingSeconds)}</div>
+        <p className="status">
+          {status === 'ready' && 'Pronto para começar'}
+          {status === 'running' && 'Contando...'}
+          {status === 'paused' && 'Pausado'}
+          {status === 'finished' && 'Tempo encerrado!'}
+        </p>
+      </section>
     </main>
   )
 }
